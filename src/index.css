@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F7F5EF;
+  --color-ink: #0F2E2B;
+  --color-teal: #0F5C56;
+  --color-coral: #FF6B5B;
+  --color-cyan: #4FD1C5;
+  --color-grid: #D8DCD4;
+
+  --color-medical-blue: var(--color-teal);
+  --color-medical-blue-hover: #073834;
+  --color-medical-glow: transparent;
+  
+  --color-teal-glow: var(--color-cyan);
+  --color-teal-glow-hover: #33a89e;
+  
+  --color-critical-red: var(--color-coral);
+  --color-stable-green: var(--color-teal);
+  --color-warning-amber: #D97706;
+  
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: "Space Grotesk", sans-serif;
+
+  --animate-fade-in: fade-in 0.12s ease-out;
+  --animate-fade-out: fade-out 0.1s ease-in;
+  --animate-scale-in: scale-in 0.12s ease-out;
+  --animate-scale-out: scale-out 0.1s ease-in;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  @keyframes scale-in {
+    from { transform: translate(-50%, -50%) scale(0.98); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  }
+  @keyframes scale-out {
+    from { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    to { transform: translate(-50%, -50%) scale(0.98); opacity: 0; }
+  }
+}
+
+/* Overriding Custom Utilities for Clinical Look */
+@utility glass-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-grid);
+}
+
+@utility glass-card-hover {
+  transition: all 0.15s ease-in-out;
+  &:hover {
+    border-color: var(--color-teal);
+    background-color: #FAFAF7;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@utility glow-accent-blue {
+  box-shadow: none;
+}
+
+@utility glow-accent-teal {
+  box-shadow: none;
+}
+
+@utility glow-text-blue {
+  text-shadow: none;
+}
+
+@utility glow-text-teal {
+  text-shadow: none;
+}
+
+/* Custom Global Reset & Base styles */
+html, body, #root {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* Plex Mono font for numbers and statistics readouts */
+.font-mono,
+.recharts-cartesian-axis-tick-value,
+.number-readout,
+input[type="number"],
+input[type="time"],
+input[type="date"],
+select {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-grid);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal);
+}
+
+/* Custom Recharts Tooltip for Paper/Ink Look */
+.recharts-default-tooltip {
+  background-color: #FFFFFF !important;
+  border: 1px solid var(--color-grid) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(15, 46, 43, 0.08) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.recharts-tooltip-label {
+  color: var(--color-ink) !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.recharts-legend-item-text {
+  color: var(--color-ink) !important;
+  font-size: 11px !important;
+}
+
+/* Graph paper grid background accent */
+.grid-bg {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(216, 220, 212, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(216, 220, 212, 0.5) 1px, transparent 1px);
+  background-color: var(--color-paper);
+}
