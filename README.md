@@ -2,6 +2,7 @@
 
 CareScope Analytics is a premium, frontend-only Healthcare Analytics SaaS dashboard built as an instrument-panel clinical interface for hospital ward managers and clinicians. 
 
+Live Demo: https://carescope-analytics.netlify.app/
 ---
 
 ## 🎨 Clinical Instrument Design System
